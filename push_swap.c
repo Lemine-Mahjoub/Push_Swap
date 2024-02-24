@@ -6,18 +6,20 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 20:20:18 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 00:03:19 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 00:28:26 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib/lib.h"
 #include <unistd.h>
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
 	t_stack	a;
 	t_stack	b;
 	int		value;
+	int		nbr;
 
 	new_stack(&a);
 	while (argc > 1)
@@ -31,7 +33,8 @@ int	main(int argc, char *argv[])
 		push(&a, value);
 		argc--;
 	}
-	tri_lemmings(&a, &b);
+	nbr = tri_lemmings(&a, &b);
 	checker(&a);
+	printf("nbr = %d\n", nbr);
 	return (0);
 }
