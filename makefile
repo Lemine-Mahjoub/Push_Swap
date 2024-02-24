@@ -9,17 +9,22 @@ clean:
 norminette:
 	@echo "Norminette :"
 	@ls *.c
-	@norminette *.c
-	@echo "\n"
+	@ls lib/*.c
+	@echo
+	@norminette *.c lib/*.c
+	@echo
 
 compile:
 	@echo "Compiling :"
 	@gcc *c -o main -Wall -Wextra -Werror
-	@echo "\n"
+	@echo OK
+	@echo
+
 
 run:
 	@echo "Running :"
-	./main
-	@echo "\n"
+	@./main
+	@echo
+
 
 
