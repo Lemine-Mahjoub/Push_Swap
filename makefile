@@ -1,6 +1,6 @@
-.PHONY: all clean norminette compile run
+.PHONY: all clean norminette compile
 
-all: clean norminette compile run
+all: clean norminette compile
 
 clean:
 	@clear
@@ -16,15 +16,11 @@ norminette:
 
 compile:
 	@echo "Compiling :"
-	@gcc lib/*c *c -o main -Wall -Wextra -Werror
+	@gcc lib/*c checker.c -o checker -Wall -Wextra -Werror
 	@echo OK
 	@echo
 
 
-run:
-	@echo "Running :"
-	@./main
-	@echo
 
 
 
