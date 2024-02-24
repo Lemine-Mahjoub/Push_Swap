@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:44:52 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 20:14:03 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/24 21:27:55 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@ int		is_int(const char *str);
 int		is_sorted(t_stack *pile);
 int		is_digit(char c);
 int		char_to_int(const char *str);
-void	s(t_stack *a);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
-void	rab(t_stack *a);
-void	rrab(t_stack *a);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
 void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 void	sab(t_stack *a);
 
