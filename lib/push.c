@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 19:25:57 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 19:32:15 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/24 23:35:22 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ void	pa(t_stack *a, t_stack *b)
 	else
 	{
 		value = depush(b);
-		if (value == -1)
-		{
-			return ;
-		}
 		push(a, value);
 	}
 }

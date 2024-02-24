@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 22:43:22 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 22:43:54 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 00:02:16 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	tri_lemmings(t_stack *a, t_stack *b)
 	{
 		pb(a, b);
 		write(1, "pb\n", 3);
-		while (b->data < b->next->data)
+		while (b->size > 1 && b->data < b->next->data)
 		{
 			sb(b);
 			write(1, "sb\n", 3);

@@ -6,9 +6,12 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:35:43 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 22:30:31 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 00:03:46 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "lib.h"
+#include <stdio.h>
 
 int	is_digit(char c)
 {
@@ -59,9 +62,9 @@ int	char_to_int(const char *str)
 		}
 		str++;
 	}
-	while (is_digit((unsigned char)*str))
+	while (is_digit(*str))
 	{
-		n = n * 10 + *str - '0';
+		n = n * 10 + (*str - '0');
 		str++;
 	}
 	return (n * sign);
