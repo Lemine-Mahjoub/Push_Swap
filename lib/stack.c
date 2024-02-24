@@ -6,12 +6,14 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:31:07 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 23:01:27 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/24 23:20:44 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 #include <stdlib.h>
+
+#include <unistd.h>
 
 void	new_stack(t_stack *pile)
 {
@@ -26,10 +28,7 @@ void	push(t_stack *pile, int data)
 	int		size;
 	t_stack	*next;
 
-	if (doublon(*pile, data))
-	{
-		return ;
-	}
+	doublon(*pile, data);
 	old_data = pile->data;
 	size = pile->size;
 	next = pile->next;
@@ -61,13 +60,15 @@ int	depush(t_stack	*pile)
 	return (data);
 }
 
-int	doublon(t_stack pile, int data)
+void	doublon(t_stack pile, int data)
 {
 	while (pile.size > 0)
 	{
 		if (pile.data == data)
-			return (1);
+		{
+			write(1, "Error\n", 6);
+			exit(2);
+		}
 		pile = *pile.next;
 	}
-	return (0);
 }
