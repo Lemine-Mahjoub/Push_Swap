@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   tri.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 20:20:18 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 22:43:45 by grey             ###   ########.fr       */
+/*   Created: 2024/02/24 22:43:22 by grey              #+#    #+#             */
+/*   Updated: 2024/02/24 22:43:54 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib/lib.h"
+#include "lib.h"
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	tri_lemmings(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
-	int		value;
-
-	new_stack(&a);
-	while (argc > 1)
+	while (a->size > 0)
 	{
-		if (!is_int(argv[argc - 1]))
+		pb(a, b);
+		write(1, "pb\n", 3);
+		while (b->data < b->next->data)
 		{
-			write(1, "Error\n", 6);
-			return (1);
+			sb(b);
+			write(1, "sb\n", 3);
+			pa(a, b);
+			write(1, "pa\n", 3);
 		}
-		value = char_to_int(argv[argc - 1]);
-		push(&a, value);
-		argc--;
 	}
-	tri_lemmings(&a, &b);
-	checker(&a);
-	return (0);
+	while (b->size > 0)
+	{
+		pa(a, b);
+		write(1, "pa\n", 3);
+	}
 }

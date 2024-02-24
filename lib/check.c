@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 20:20:18 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 22:43:45 by grey             ###   ########.fr       */
+/*   Created: 2024/02/24 22:41:28 by grey              #+#    #+#             */
+/*   Updated: 2024/02/24 22:42:33 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib/lib.h"
+#include "lib.h"
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+int	is_sorted(t_stack *pile)
 {
-	t_stack	a;
-	t_stack	b;
-	int		value;
-
-	new_stack(&a);
-	while (argc > 1)
+	while (pile->size > 1)
 	{
-		if (!is_int(argv[argc - 1]))
+		if (pile->data > pile->next->data)
 		{
-			write(1, "Error\n", 6);
-			return (1);
+			return (0);
 		}
-		value = char_to_int(argv[argc - 1]);
-		push(&a, value);
-		argc--;
+		pile = pile->next;
 	}
-	tri_lemmings(&a, &b);
-	checker(&a);
-	return (0);
+	return (1);
+}
+
+void	checker(t_stack	*pile)
+{
+	if (is_sorted(pile))
+	{
+		write(1, "OK\n", 3);
+	}
+	else
+	{
+		write(1, "KO\n", 3);
+	}
 }

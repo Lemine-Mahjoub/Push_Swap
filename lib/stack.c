@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:31:07 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 19:17:56 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/24 23:01:27 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ void	push(t_stack *pile, int data)
 	int		size;
 	t_stack	*next;
 
+	if (doublon(*pile, data))
+	{
+		return ;
+	}
 	old_data = pile->data;
 	size = pile->size;
 	next = pile->next;
@@ -55,4 +59,15 @@ int	depush(t_stack	*pile)
 	pile->next = next->next;
 	free(next);
 	return (data);
+}
+
+int	doublon(t_stack pile, int data)
+{
+	while (pile.size > 0)
+	{
+		if (pile.data == data)
+			return (1);
+		pile = *pile.next;
+	}
+	return (0);
 }

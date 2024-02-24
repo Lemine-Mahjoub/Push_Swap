@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:44:52 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 21:30:55 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/24 23:00:00 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-void	sab(t_stack *a);
+void	checker(t_stack	*pile);
+int		is_sorted(t_stack *pile);
+void	tri_lemmings(t_stack *a, t_stack *b);
+int		doublon(t_stack pile, int data);
 
 #endif
