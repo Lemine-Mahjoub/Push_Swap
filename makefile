@@ -17,6 +17,7 @@ norminette:
 compile:
 	@echo "Compiling :"
 	@gcc lib/*c checker.c -o checker -Wall -Wextra -Werror
+	@gcc lib/*c push_swap.c -o push_swap -Wall -Wextra -Werror
 	@echo OK
 	@echo
 
