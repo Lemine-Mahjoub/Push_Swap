@@ -11,12 +11,12 @@ norminette:
 	@ls *.c
 	@ls lib/*.c
 	@echo
-	@norminette *.c lib/*.c
+	@norminette
 	@echo
 
 compile:
 	@echo "Compiling :"
-	@gcc *c -o main -Wall -Wextra -Werror
+	@gcc lib/*c *c -o main -Wall -Wextra -Werror
 	@echo OK
 	@echo
 
