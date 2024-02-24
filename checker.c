@@ -6,13 +6,12 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:31:56 by grey              #+#    #+#             */
-/*   Updated: 2024/02/24 18:25:11 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/24 19:01:28 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib/lib.h"
 #include <unistd.h>
-#include <stdlib.h>
 
 int	is_sorted(t_stack *pile)
 {
@@ -35,7 +34,12 @@ int	main(int argc, char *argv[])
 	new_stack(&pile);
 	while (argc > 1)
 	{
-		value = atoi(argv[argc - 1]);
+		if (!is_int(argv[argc - 1]))
+		{
+			write(1, "Error\n", 6);
+			return (1);
+		}
+		value = char_to_int(argv[argc - 1]);
 		push(&pile, value);
 		argc--;
 	}
