@@ -6,12 +6,11 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:35:43 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 00:03:46 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 03:36:32 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
-#include <stdio.h>
 
 int	is_digit(char c)
 {
@@ -20,52 +19,39 @@ int	is_digit(char c)
 
 int	is_int(const char *str)
 {
-	if (*str == '\0')
-	{
-		return (0);
-	}
 	if (*str == '+' || *str == '-')
-	{
 		str++;
-		if (*str == '\0')
-		{
-			return (0);
-		}
-	}
-	while (*str != '\0')
+	if (!*str)
+		return (0);
+	while (*str)
 	{
-		if (!is_digit((unsigned char)*str))
-		{
+		if (!is_digit(*str))
 			return (0);
-		}
 		str++;
 	}
 	return (1);
 }
 
-int	char_to_int(const char *str)
+int	char_to_int(char **str_ptr)
 {
-	int	n;
-	int	sign;
+	char	*str;
+	int		result;
+	int		sign;
 
-	n = 0;
+	str = *str_ptr;
+	result = 0;
 	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-	{
-		str++;
-	}
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
-		{
 			sign = -1;
-		}
 		str++;
 	}
 	while (is_digit(*str))
 	{
-		n = n * 10 + (*str - '0');
+		result = result * 10 + (*str - '0');
 		str++;
 	}
-	return (n * sign);
+	*str_ptr = str;
+	return (result * sign);
 }

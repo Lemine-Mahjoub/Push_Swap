@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:44:52 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 01:34:43 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 03:33:50 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	push(t_stack *pile, int data);
 int		is_int(const char *str);
 int		is_sorted(t_stack *pile);
 int		is_digit(char c);
-int		char_to_int(const char *str);
+int		char_to_int(char **str);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);

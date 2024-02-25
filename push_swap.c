@@ -6,35 +6,61 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 20:20:18 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 00:59:27 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 03:46:31 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib/lib.h"
 #include <unistd.h>
-#include <stdio.h>
+#include <stdlib.h>
+
+void	exit_with_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
+}
+
+void	process_ints_str(t_stack *a, char *str)
+{
+	while (*str)
+	{
+		while (*str == ' ')
+			str++;
+		if (*str == '\0')
+			break ;
+		push(a, char_to_int(&str));
+	}
+}
+
+void	process_ints_args(t_stack *a, char **argv)
+{
+	while (*argv)
+	{
+		if (!is_int(*argv))
+			exit_with_error();
+		push(a, char_to_int(argv));
+		argv++;
+	}
+}
 
 int	main(int argc, char *argv[])
 {
 	t_stack	a;
 	t_stack	b;
-	int		value;
-	int		nbr;
 
 	new_stack(&a);
-	while (argc > 1)
-	{
-		if (!is_int(argv[argc - 1]))
-		{
-			write(1, "Error\n", 6);
-			return (1);
-		}
-		value = char_to_int(argv[argc - 1]);
-		push(&a, value);
-		argc--;
-	}
-	nbr = tri_lemmings(&a, &b);
+	new_stack(&b);
+	if (argc == 1)
+		return (0);
+	if (argc == 2)
+		process_ints_str(&a, argv[1]);
+	else if (argc > 2)
+		process_ints_args(&a, argv + 1);
+	else
+		exit_with_error();
+	if (is_sorted(&a))
+		return (0);
+	tri_lemmings(&a, &b);
 	checker(&a);
-	printf("nbr = %d\n", nbr);
 	return (0);
 }
