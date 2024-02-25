@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:35:43 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 03:36:32 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 04:53:43 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	is_int(const char *str)
 	return (1);
 }
 
-int	char_to_int(char **str_ptr)
+long long int	char_to_int(char **str_ptr)
 {
-	char	*str;
-	int		result;
-	int		sign;
+	char			*str;
+	long long int	result;
+	int				sign;
 
 	str = *str_ptr;
 	result = 0;

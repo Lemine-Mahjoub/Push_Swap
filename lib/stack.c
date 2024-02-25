@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:31:07 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 02:26:30 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 04:57:37 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	new_stack(t_stack *pile)
 	pile->next = (t_stack *)malloc(sizeof(t_stack));
 }
 
-void	push(t_stack *pile, int data)
+void	push(t_stack *pile, long long int data)
 {
-	int		old_data;
-	int		size;
-	t_stack	*next;
+	long long int	old_data;
+	int				size;
+	t_stack			*next;
 
 	doublon(*pile, data);
 	old_data = pile->data;
