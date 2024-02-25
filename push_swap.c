@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 20:20:18 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 04:32:16 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 04:40:58 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	main(int argc, char *argv[])
 		process_ints_args(&a, argv + 1);
 	else
 		exit_with_error();
+	tri_lemmings(&a, &b);
 	return (0);
 }

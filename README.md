@@ -1,46 +1,49 @@
-# push_swap_tester
-Script to test Push Swap project
+# Push Swap Project
+## Overview
+The Push Swap project is an algorithmic challenge that requires sorting data on a stack, with a limited set of instructions, and using the smallest number of actions. Through this project, students learn about sorting algorithms and stack operations. The goal is to sort numbers into ascending order.
 
-<img src="screenshot.png" width="75%">
+## Objectives
+Implement a sorting algorithm using two stacks.
+Optimize the algorithm to minimize the number of operations.
+Learn about stack data structures and sorting algorithms.
 
-### Usage
+## Installation
+
+Clone the repository and navigate to the project directory. The project includes a Makefile for compiling the program.
 
 ```bash
-git clone git@github.com:laisarena/push_swap_tester.git
-cd push_swap_tester
-cp ../path_to_push_swap_folder/push_swap .
-bash tester.sh
+git clone https://github.com/Lemine-Mahjoub/Push_Swap
+cd Push_Swap
 ```
 
-You can change the variable 'NUM_TESTS' which determines how many times the program will be run to calculate the averages of operations, using the flag -n <NUMBER>
+## How to Compile
+To compile the Push Swap program, run the following command in the root of the project directory:
 
-You can also choose to test only a specific part of the program using the flag -f, as follows:
-* -f error : Error management
-* -f sorted: Check if sorted lists do nothing
-* -f simple: Lists of size 3 and 5
-* -f middle: Lists of size 100
-* -f advanced: Lists of size 500
 
-### Test Log
-You can see the test log into the folder "log_error"
 ```bash
-$ cd log_error
+make
 ```
-And choose the number of numbers tested into the folders "five", "hundred" and "five_hundred"<br>
-Then, you can use the command cat to see the content log
+This command will compile the push_swap binary.
+
+## Usage
+After compiling the program, you can run it using the following syntax:
+
 ```bash
-$ ls
-five hundred five_hundred
-$ cd five
-$ ls
-test_0 test_5
-$ cat test_0
-Random list of Five numbers
-2 0 1 3 4
-sa
-pb
-pa
-sa
-Qtt commands = 4
-Test Checker = KO
+./push_swap [list of integers]
 ```
+For example:
+
+```bash
+./push_swap 2 1 3 6 5 8
+```
+This will output a list of operations that sort the provided integers.
+
+## Testing
+You can test the program with random numbers using a script or by manually entering numbers. For example, to test with 5 random numbers:
+
+```bash
+ARG=$(ruby -e "puts (1..5).to_a.shuffle.join(' ')"); ./push_swap $ARG
+```
+Replace 5 with any number of elements you wish to test.
+
+
