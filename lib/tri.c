@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 00:58:10 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 01:45:03 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 04:25:06 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,31 @@ int	tri_lemmings(t_stack *a, t_stack *b)
 		rotate_or_go_up (a, b, &i);
 	}
 	return (i);
+}
+
+void	tri_lemmings_silencieux(t_stack *a, t_stack *b)
+{
+	while (a->size > 0)
+	{
+		if (a->size == 1)
+			return ;
+		if (a->size == 2)
+		{
+			if (a->data > a->next->data)
+			{
+				sa(a);
+				return ;
+			}
+			return ;
+		}
+		if (a->data > a->next->data)
+		{
+			pb(a, b);
+		}
+		else
+		{
+			ra(a);
+		}
+	}
+	return ;
 }

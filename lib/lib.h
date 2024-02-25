@@ -6,7 +6,7 @@
 /*   By: grey <grey@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:44:52 by grey              #+#    #+#             */
-/*   Updated: 2024/02/25 03:56:13 by grey             ###   ########.fr       */
+/*   Updated: 2024/02/25 04:32:05 by grey             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct t_stack
 {
-	int				data;
+	long int		data;
 	int				size;
 	struct t_stack	*next;
 }	t_stack;
@@ -42,5 +42,10 @@ int		is_sorted(t_stack *pile);
 int		tri_lemmings(t_stack *a, t_stack *b);
 void	doublon(t_stack pile, int data);
 void	rotate_or_go_up(t_stack *a, t_stack *b, long int *i);
+void	tri_lemmings_silencieux(t_stack *a, t_stack *b);
+void	exit_with_error(void);
+void	process_ints_str(t_stack *a, char *str);
+void	process_ints_args(t_stack *a, char **argv);
+int		main(int argc, char *argv[]);
 
 #endif
